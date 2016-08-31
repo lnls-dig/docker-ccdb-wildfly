@@ -51,6 +51,8 @@
         <property name="org.openepics.discs.conf.props.cableDBStatus" value="TRUE" />
         <property name="org.openepics.discs.conf.props.auditLogRows" value="10" />
         <property name="org.openepics.discs.conf.props.auditLogColumns" value="10" />
+
+        <property name="names.servicesBaseURL" value="https://naming-service-wildfly:8080/names/rest" />
     </system-properties>
     <management>
         <security-realms>
