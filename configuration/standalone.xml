@@ -387,9 +387,9 @@
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:undertow:1.2">
             <buffer-cache name="default"/>
-            <server name="default-server">
+            <server name="default-server_external">
                 <http-listener name="default" socket-binding="http"/>
-                <host name="default-host" alias="localhost">
+                <host name="ccdb" alias="localhost">
                     <location name="/" handler="welcome-content"/>
                     <filter-ref name="server-header"/>
                     <filter-ref name="x-powered-by-header"/>
