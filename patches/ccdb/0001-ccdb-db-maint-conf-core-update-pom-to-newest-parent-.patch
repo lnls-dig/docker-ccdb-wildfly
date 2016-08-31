@@ -1,0 +1,148 @@
+From 57dbf5ed2651d9b4ea3b3fdfbf9ceec4e4b3773f Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Wed, 31 Aug 2016 14:30:31 -0300
+Subject: [PATCH 1/2] ccdb-db-maint,conf-core: update pom to newest parent
+ version
+
+---
+ ccdb-db-maint/pom.xml |  2 +-
+ conf-core/pom.xml     | 28 ++++++++++++++--------------
+ 2 files changed, 15 insertions(+), 15 deletions(-)
+
+diff --git a/ccdb-db-maint/pom.xml b/ccdb-db-maint/pom.xml
+index 2881349..c014721 100644
+--- a/ccdb-db-maint/pom.xml
++++ b/ccdb-db-maint/pom.xml
+@@ -11,7 +11,7 @@
+     <parent>
+         <groupId>org.openepics.discs</groupId>
+         <artifactId>ccdb</artifactId>
+-        <version>1.1.5</version>
++        <version>1.1.6-SNAPSHOT</version>
+         <relativePath>..</relativePath>
+     </parent>
+ 
+diff --git a/conf-core/pom.xml b/conf-core/pom.xml
+index c834178..9571635 100644
+--- a/conf-core/pom.xml
++++ b/conf-core/pom.xml
+@@ -11,7 +11,7 @@
+     <parent>
+         <groupId>org.openepics.discs</groupId>
+         <artifactId>ccdb</artifactId>
+-        <version>1.1.5</version>
++        <version>1.1.6-SNAPSHOT</version>
+         <relativePath>..</relativePath>
+     </parent>
+ 
+@@ -29,9 +29,9 @@
+         Example in a Jenkins build where ${WORKSPACE} is defined and your project in the root directory of the workspace :
+         mvn clean install -Prun-its,coverage -Djacoco.outputDir=${WORKSPACE}/target
+         Note that unfortunately using the following does not work because of
+-         
++
+         http://jira.codehaus.org/browse/SONAR-3427:
+-         
++
+         <jacoco.outputDir>${session.executionRootDirectory}/target/</jacoco.outputDir>
+         -->
+         <jacoco.outputDir>${basedir}/../target</jacoco.outputDir>
+@@ -183,7 +183,7 @@
+                         </configuration>
+                     </execution>
+                 </executions>
+-            </plugin>            
++            </plugin>
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-war-plugin</artifactId>
+@@ -199,7 +199,7 @@
+                 <configuration>
+                     <skip>true</skip>
+                 </configuration>
+-            </plugin>            
++            </plugin>
+         </plugins>
+         <pluginManagement>
+             <plugins>
+@@ -247,7 +247,7 @@
+ 
+     <!-- This should be used to customize for Glassfish / JBoss -->
+     <profiles>
+-    
++
+         <profile>
+             <id>development</id>
+             <activation>
+@@ -297,7 +297,7 @@
+                 <as.specific.source>production</as.specific.source>
+             </properties>
+         </profile>
+-    
++
+         <profile>
+             <id>glassfish</id>
+             <activation>
+@@ -330,7 +330,7 @@
+                                     <targetPath>WEB-INF/classes/META-INF</targetPath>
+                                     <includes>
+                                         <include>persistence.xml</include>
+-                                    </includes>                                    
++                                    </includes>
+                                 </resource>
+                                 <resource>
+                                     <directory>AS-specific-resources/glassfish</directory>
+@@ -464,7 +464,7 @@
+                    <artifactId>arquillian-transaction-jta</artifactId>
+                    <version>1.0.3.Final</version>
+                    <scope>test</scope>
+-               </dependency>                
++               </dependency>
+                 <dependency>
+                     <groupId>org.jboss.arquillian.extension</groupId>
+                     <artifactId>arquillian-jacoco</artifactId>
+@@ -506,7 +506,7 @@
+                                     <skip>${jacoco.it.skip}</skip>
+                                     <destFile>${basedir}/../target/jacoco.exec</destFile>
+                                 </configuration>
+-                            </execution>                                   
++                            </execution>
+                             <execution>
+                                 <id>unit-tests</id>
+                                 <goals>
+@@ -528,12 +528,12 @@
+                                     <dataFile>${basedir}/../target/jacoco.exec</dataFile>
+                                 </configuration>
+                             </execution>
+-                        </executions>                   
++                        </executions>
+                     </plugin>
+                     <plugin>
+                         <groupId>org.apache.maven.plugins</groupId>
+                         <artifactId>maven-surefire-plugin</artifactId>
+-                        <version>2.19.1</version>                        
++                        <version>2.19.1</version>
+                     </plugin>
+                     <plugin>
+                         <groupId>org.apache.maven.plugins</groupId>
+@@ -552,7 +552,7 @@
+                                     <goal>verify</goal>
+                                 </goals>
+                             </execution>
+-                        </executions>              
++                        </executions>
+                     </plugin>
+                     <plugin>
+                         <groupId>org.apache.maven.plugins</groupId>
+@@ -566,7 +566,7 @@
+                                     <filtering>true</filtering>
+                                     <includes>
+                                         <include>persistence.xml</include>
+-                                    </includes>                                    
++                                    </includes>
+                                 </resource>
+                                 <resource>
+                                     <directory>AS-specific-resources/jboss/${as.specific.source}</directory>
+-- 
+1.9.1
+
