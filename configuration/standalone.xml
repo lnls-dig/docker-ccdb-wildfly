@@ -30,10 +30,10 @@
         <property name="org.apache.tomcat.util.http.Parameters.MAX_COUNT" value="5000"/>
         <property name="rbac.default.accept.certificate" value="true"/>
         <property name="rbac.certificateStore" value="/opt/jboss/wildfly/standalone/configuration/.rbac" />
-        <property name="rbac.primaryServicesURL" value=" https://rbac-auth-services:8443/service"/>
+        <property name="rbac.primaryServicesURL" value="https://rbac-auth-services:8443/service"/>
         <property name="rbac.primarySSLHost" value="rbac-auth-services"/>
         <property name="rbac.primarySSLPort" value="8443"/>
-        <property name="rbac.secondaryServicesURL" value=" https://localhost:8443/service"/>
+        <property name="rbac.secondaryServicesURL" value="https://localhost:8443/service"/>
         <property name="rbac.secondarySSLHost" value="localhost"/>
         <property name="rbac.secondarySSLPort" value="8443"/>
         <property name="rbac.useLocalService" value="false" />
