@@ -41,8 +41,8 @@
 
         <property name="org.openepics.discs.conf.props.BlobStoreRoot"
             value="$JBOSS_HOME/standalone/blobStore" />
-        <!-- <property name= "org.openepics.discs.conf.props.namingAppURL"
-            value="https://naming.esss.lu.se" /> -->
+        <property name= "org.openepics.discs.conf.props.namingAppURL"
+            value="https://naming-service-wildfly:8080/names" />
         <property name="org.openepics.discs.conf.props.detectNamingStatus" value="TRUE" />
         <property name="org.openepics.discs.conf.props.restrictToConventionNames"
             value="TRUE" />
