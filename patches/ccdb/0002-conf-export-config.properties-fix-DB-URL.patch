@@ -1,7 +1,7 @@
-From 65ca8aead06044071deba040ceba14ad884f796e Mon Sep 17 00:00:00 2001
+From 5fcb016f104ea94b9e3dc8d69cbc2047d0e8fca9 Mon Sep 17 00:00:00 2001
 From: Lucas Russo <lerwys@gmail.com>
 Date: Wed, 31 Aug 2016 16:19:44 -0300
-Subject: [PATCH 2/3] conf-export/config.properties: fix DB URL
+Subject: [PATCH 2/6] conf-export/config.properties: fix DB URL
 
 ---
  conf-export/config.properties | 2 +-

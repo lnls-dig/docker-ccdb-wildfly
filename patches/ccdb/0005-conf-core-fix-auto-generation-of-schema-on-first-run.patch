@@ -1,0 +1,168 @@
+From 53c538239f9dca2314bc29ccbead3fcfc2f9ab3d Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Fri, 2 Sep 2016 23:30:35 -0300
+Subject: [PATCH 5/6] conf-core/*: fix auto generation of schema on first run
+
+---
+ ccdb-ws/AS-specific-resources/jboss/development/persistence.xml   | 7 ++++---
+ ccdb-ws/AS-specific-resources/jboss/production/persistence.xml    | 6 ++++--
+ ccdb-ws/AS-specific-resources/jboss/stage/persistence.xml         | 6 ++++--
+ conf-core/AS-specific-resources/jboss/development/persistence.xml | 6 ++++--
+ conf-core/AS-specific-resources/jboss/production/persistence.xml  | 6 ++++--
+ conf-core/AS-specific-resources/jboss/stage/persistence.xml       | 6 ++++--
+ 6 files changed, 24 insertions(+), 13 deletions(-)
+
+diff --git a/ccdb-ws/AS-specific-resources/jboss/development/persistence.xml b/ccdb-ws/AS-specific-resources/jboss/development/persistence.xml
+index 173e7c2..cf8bc31 100644
+--- a/ccdb-ws/AS-specific-resources/jboss/development/persistence.xml
++++ b/ccdb-ws/AS-specific-resources/jboss/development/persistence.xml
+@@ -3,6 +3,7 @@
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+     <persistence-unit name="org.openepics.discs.conf.data" transaction-type="JTA">
++        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+         <jta-data-source>java:/org.openepics.discs.conf.data</jta-data-source>
+ 
+         <jar-file>${ccdb.model.jar.name}</jar-file>
+@@ -43,9 +44,9 @@
+         <class>org.openepics.discs.conf.ent.UserRole</class>
+ 
+         <properties>
+-            <!-- property name="hibernate.show_sql" value="true" / -->
+-            <property name="hibernate.hbm2ddl.auto" value="validate" />
+             <property name="hibernate.enable_lazy_load_no_trans" value="true" />
++            <property name="hibernate.hbm2ddl.auto" value="update" />
++            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+         </properties>
+     </persistence-unit>
+-</persistence>
+\ No newline at end of file
++</persistence>
+diff --git a/ccdb-ws/AS-specific-resources/jboss/production/persistence.xml b/ccdb-ws/AS-specific-resources/jboss/production/persistence.xml
+index d84bb62..cf8bc31 100644
+--- a/ccdb-ws/AS-specific-resources/jboss/production/persistence.xml
++++ b/ccdb-ws/AS-specific-resources/jboss/production/persistence.xml
+@@ -3,6 +3,7 @@
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+     <persistence-unit name="org.openepics.discs.conf.data" transaction-type="JTA">
++        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+         <jta-data-source>java:/org.openepics.discs.conf.data</jta-data-source>
+ 
+         <jar-file>${ccdb.model.jar.name}</jar-file>
+@@ -43,8 +44,9 @@
+         <class>org.openepics.discs.conf.ent.UserRole</class>
+ 
+         <properties>
+-            <property name="hibernate.hbm2ddl.auto" value="validate" />
+             <property name="hibernate.enable_lazy_load_no_trans" value="true" />
++            <property name="hibernate.hbm2ddl.auto" value="update" />
++            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+         </properties>
+     </persistence-unit>
+-</persistence>
+\ No newline at end of file
++</persistence>
+diff --git a/ccdb-ws/AS-specific-resources/jboss/stage/persistence.xml b/ccdb-ws/AS-specific-resources/jboss/stage/persistence.xml
+index d84bb62..cf8bc31 100644
+--- a/ccdb-ws/AS-specific-resources/jboss/stage/persistence.xml
++++ b/ccdb-ws/AS-specific-resources/jboss/stage/persistence.xml
+@@ -3,6 +3,7 @@
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+     <persistence-unit name="org.openepics.discs.conf.data" transaction-type="JTA">
++        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+         <jta-data-source>java:/org.openepics.discs.conf.data</jta-data-source>
+ 
+         <jar-file>${ccdb.model.jar.name}</jar-file>
+@@ -43,8 +44,9 @@
+         <class>org.openepics.discs.conf.ent.UserRole</class>
+ 
+         <properties>
+-            <property name="hibernate.hbm2ddl.auto" value="validate" />
+             <property name="hibernate.enable_lazy_load_no_trans" value="true" />
++            <property name="hibernate.hbm2ddl.auto" value="update" />
++            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+         </properties>
+     </persistence-unit>
+-</persistence>
+\ No newline at end of file
++</persistence>
+diff --git a/conf-core/AS-specific-resources/jboss/development/persistence.xml b/conf-core/AS-specific-resources/jboss/development/persistence.xml
+index 173e7c2..22532f5 100644
+--- a/conf-core/AS-specific-resources/jboss/development/persistence.xml
++++ b/conf-core/AS-specific-resources/jboss/development/persistence.xml
+@@ -3,6 +3,7 @@
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+     <persistence-unit name="org.openepics.discs.conf.data" transaction-type="JTA">
++        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+         <jta-data-source>java:/org.openepics.discs.conf.data</jta-data-source>
+ 
+         <jar-file>${ccdb.model.jar.name}</jar-file>
+@@ -44,8 +45,9 @@
+ 
+         <properties>
+             <!-- property name="hibernate.show_sql" value="true" / -->
+-            <property name="hibernate.hbm2ddl.auto" value="validate" />
+             <property name="hibernate.enable_lazy_load_no_trans" value="true" />
++            <property name="hibernate.hbm2ddl.auto" value="update" />
++            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+         </properties>
+     </persistence-unit>
+-</persistence>
+\ No newline at end of file
++</persistence>
+diff --git a/conf-core/AS-specific-resources/jboss/production/persistence.xml b/conf-core/AS-specific-resources/jboss/production/persistence.xml
+index d84bb62..cf8bc31 100644
+--- a/conf-core/AS-specific-resources/jboss/production/persistence.xml
++++ b/conf-core/AS-specific-resources/jboss/production/persistence.xml
+@@ -3,6 +3,7 @@
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+     <persistence-unit name="org.openepics.discs.conf.data" transaction-type="JTA">
++        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+         <jta-data-source>java:/org.openepics.discs.conf.data</jta-data-source>
+ 
+         <jar-file>${ccdb.model.jar.name}</jar-file>
+@@ -43,8 +44,9 @@
+         <class>org.openepics.discs.conf.ent.UserRole</class>
+ 
+         <properties>
+-            <property name="hibernate.hbm2ddl.auto" value="validate" />
+             <property name="hibernate.enable_lazy_load_no_trans" value="true" />
++            <property name="hibernate.hbm2ddl.auto" value="update" />
++            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+         </properties>
+     </persistence-unit>
+-</persistence>
+\ No newline at end of file
++</persistence>
+diff --git a/conf-core/AS-specific-resources/jboss/stage/persistence.xml b/conf-core/AS-specific-resources/jboss/stage/persistence.xml
+index d84bb62..cf8bc31 100644
+--- a/conf-core/AS-specific-resources/jboss/stage/persistence.xml
++++ b/conf-core/AS-specific-resources/jboss/stage/persistence.xml
+@@ -3,6 +3,7 @@
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+     <persistence-unit name="org.openepics.discs.conf.data" transaction-type="JTA">
++        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+         <jta-data-source>java:/org.openepics.discs.conf.data</jta-data-source>
+ 
+         <jar-file>${ccdb.model.jar.name}</jar-file>
+@@ -43,8 +44,9 @@
+         <class>org.openepics.discs.conf.ent.UserRole</class>
+ 
+         <properties>
+-            <property name="hibernate.hbm2ddl.auto" value="validate" />
+             <property name="hibernate.enable_lazy_load_no_trans" value="true" />
++            <property name="hibernate.hbm2ddl.auto" value="update" />
++            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+         </properties>
+     </persistence-unit>
+-</persistence>
+\ No newline at end of file
++</persistence>
+-- 
+1.9.1
+

@@ -1,0 +1,29 @@
+From 786343b498521a9c4309029d78f39b47e07ae681 Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Thu, 8 Sep 2016 10:42:17 -0300
+Subject: [PATCH 6/6] ccdb-ws: auto-create schema on first run
+
+---
+ ccdb-ws/src/main/resources/META-INF/persistence.xml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/ccdb-ws/src/main/resources/META-INF/persistence.xml b/ccdb-ws/src/main/resources/META-INF/persistence.xml
+index 29c2411..0afdfe5 100644
+--- a/ccdb-ws/src/main/resources/META-INF/persistence.xml
++++ b/ccdb-ws/src/main/resources/META-INF/persistence.xml
+@@ -9,9 +9,9 @@
+             <!-- Standard JPA properties WERE NOT creating the schema
+                  Please test before pushing to master in future.
+              -->
+-            <!-- property name="hibernate.hbm2ddl.auto" value="update"/ -->
+             <!-- property name="hibernate.show_sql" value="true" / -->
++            <property name="hibernate.hbm2ddl.auto" value="update"/ >
+             <property name="hibernate.enable_lazy_load_no_trans" value="true"/>
+         </properties>
+     </persistence-unit>
+-</persistence>
+\ No newline at end of file
++</persistence>
+-- 
+1.9.1
+
