@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-NET_NAME="postgres-ccdb"
+#NET_NAME="postgres-ccdb"
+NET_NAME="dockerrbacauthservicescomposed_postgres-rbac"
 DNS_IP="10.0.0.72"
 WILDFLY_PORT=8080
 LOCAL_WILDFLY_PORT=8083
