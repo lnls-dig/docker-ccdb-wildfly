@@ -10,7 +10,7 @@ git clone --branch=${ESS_JAVA_CONFIG_VERSION} https://bitbucket.org/europeanspal
 # Clone naming-convention-tool
 git clone --branch=${CCDB_REPO_VERSION} https://github.com/lnls-dig/ccdb ${CCDB_REPO}
 # Clone wait-for-it
-git clone --branch=${WAIT_FOR_IT_VERSION} https://github.com/vishnubob/wait-for-it scripts/${WAIT_FOR_IT_REPO}
+git clone --branch=${WAIT_FOR_IT_VERSION} https://github.com/vishnubob/wait-for-it ${WAIT_FOR_IT_REPO}
 
 # Build Java Config
 cd ${ESS_JAVA_CONFIG_REPO}
@@ -19,7 +19,7 @@ cd ..
 
 # Apply patches
 cd ${CCDB_REPO}
-git am ../patches/ccdb/*
+git am --ignore-whitespace /build/patches/ccdb/*
 cd ..
 
 # Build flyway
