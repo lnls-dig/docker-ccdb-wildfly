@@ -42,10 +42,14 @@ WORKDIR /build
 
 # Compile application
 RUN echo nameserver 10.0.0.71 >> /etc/resolv.conf && \
-    /build/setup-wildfly.sh
+    /build/setup-wildfly.sh && \
+    cp /build/wait-for-it/wait-for-it.sh / && \
+    rm -rf ~/.m2 && \
+    rm -rf /root/.m2 && \
+    rm -rf /build/*
 
-# Copy possible entrypoint for user use
-RUN cp /build/wait-for-it/wait-for-it.sh /
+# Change to root directory
+WORKDIR /
 
 # Deploy everything
 RUN mv /deploy/* /opt/jboss/wildfly/standalone/deployments/
