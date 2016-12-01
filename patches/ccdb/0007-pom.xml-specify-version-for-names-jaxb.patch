@@ -1,0 +1,27 @@
+From e45e33ceedbcc929d61df0b6269084151f59bb5d Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Thu, 1 Dec 2016 12:20:43 -0200
+Subject: [PATCH 1/2] pom.xml: specify version for names-jaxb
+
+The latest version seems to be wrongly
+packaged, so builds are failing.
+---
+ pom.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/pom.xml b/pom.xml
+index b936feb..68fe717 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -63,7 +63,7 @@
+             <dependency>
+                 <groupId>org.openepics</groupId>
+                 <artifactId>names-jaxb</artifactId>
+-                <version>[3.0.2,)</version>
++                <version>3.0.3</version>
+             </dependency>
+ 
+             <dependency>
+-- 
+1.9.1
+

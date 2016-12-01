@@ -1,0 +1,56 @@
+From aedf7ef82e20cc97f33d1e3f6a87700d3a60021a Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Thu, 1 Dec 2016 12:21:15 -0200
+Subject: [PATCH 2/2] conf-core/pom.xml: specify names-jaxb version
+
+The latest version seems to be wrongly
+packaged. So, builds are failing.
+---
+ conf-core/pom.xml | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/conf-core/pom.xml b/conf-core/pom.xml
+index 6c60391..6b4a960 100644
+--- a/conf-core/pom.xml
++++ b/conf-core/pom.xml
+@@ -29,9 +29,9 @@
+         Example in a Jenkins build where ${WORKSPACE} is defined and your project in the root directory of the workspace :
+         mvn clean install -Prun-its,coverage -Djacoco.outputDir=${WORKSPACE}/target
+         Note that unfortunately using the following does not work because of
+-         
++
+         http://jira.codehaus.org/browse/SONAR-3427:
+-         
++
+         <jacoco.outputDir>${session.executionRootDirectory}/target/</jacoco.outputDir>
+         -->
+         <jacoco.outputDir>${basedir}/../target</jacoco.outputDir>
+@@ -115,6 +115,7 @@
+         <dependency>
+             <groupId>org.openepics</groupId>
+             <artifactId>names-jaxb</artifactId>
++            <version>3.0.3</version>
+         </dependency>
+         <dependency>
+             <groupId>org.openepics</groupId>
+@@ -214,7 +215,7 @@
+                 <configuration>
+                     <skip>true</skip>
+                 </configuration>
+-            </plugin>            
++            </plugin>
+         </plugins>
+         <pluginManagement>
+             <plugins>
+@@ -479,7 +480,7 @@
+                    <artifactId>arquillian-transaction-jta</artifactId>
+                    <version>1.0.3.Final</version>
+                    <scope>test</scope>
+-               </dependency>                
++               </dependency>
+                 <dependency>
+                     <groupId>org.jboss.arquillian.extension</groupId>
+                     <artifactId>arquillian-jacoco</artifactId>
+-- 
+1.9.1
+
