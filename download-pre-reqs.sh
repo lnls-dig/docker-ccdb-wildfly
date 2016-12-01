@@ -8,7 +8,7 @@ curl -o postgresql-${POSTGRES_VERSION}.jar https://jdbc.postgresql.org/download/
 # Clone ESS java config
 git clone --branch=${ESS_JAVA_CONFIG_VERSION} https://bitbucket.org/europeanspallationsource/ess-java-config ${ESS_JAVA_CONFIG_REPO}
 # Clone naming-convention-tool
-git clone --branch=${CCDB_REPO_VERSION} https://github.com/lnls-dig/ccdb ${CCDB_REPO}
+git clone --branch=${CCDB_REPO_VERSION} https://bitbucket.org/europeanspallationsource/ccdb ${CCDB_REPO}
 # Clone wait-for-it
 git clone --branch=${WAIT_FOR_IT_VERSION} https://github.com/vishnubob/wait-for-it ${WAIT_FOR_IT_REPO}
 
