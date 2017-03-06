@@ -19,7 +19,7 @@ cd ..
 
 # Apply patches
 cd ${CCDB_REPO}
-git am --ignore-whitespace /build/patches/ccdb/*
+git am --ignore-whitespace /build/patches/ccdb/${CCDB_VERSION}/*
 cd ..
 
 # Build flyway

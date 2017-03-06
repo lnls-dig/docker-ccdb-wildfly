@@ -1,0 +1,25 @@
+From 441fe92aa0b1a61965edcd59d2a17488f724f8f6 Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Thu, 1 Dec 2016 17:53:34 -0200
+Subject: [PATCH] conf-core: fix not scalar enumeration type for view
+
+This was causing InvalidArgumentExcepetion.
+---
+ .../java/org/openepics/discs/conf/ui/lazymodels/DataTypeLazyModel.java   | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/conf-core/src/main/java/org/openepics/discs/conf/ui/lazymodels/DataTypeLazyModel.java b/conf-core/src/main/java/org/openepics/discs/conf/ui/lazymodels/DataTypeLazyModel.java
+index 5956a70..9b8f3ac 100644
+--- a/conf-core/src/main/java/org/openepics/discs/conf/ui/lazymodels/DataTypeLazyModel.java
++++ b/conf-core/src/main/java/org/openepics/discs/conf/ui/lazymodels/DataTypeLazyModel.java
+@@ -80,6 +80,7 @@ public class DataTypeLazyModel extends CCDBLazyModel<UserEnumerationView> {
+         final List<UserEnumerationView> transformedResults = results == null
+                                                 ? null
+                                                 : results.stream().
++                                                    filter(dt -> dt.isScalar()).
+                                                     filter(dt -> !builtInDataTypeNames.contains(dt.getName())).
+                                                     map(UserEnumerationView::new).collect(Collectors.toList());
+         if (first == 0) {
+-- 
+1.9.1
+
