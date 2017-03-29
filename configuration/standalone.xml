@@ -42,12 +42,12 @@
         <property name="org.openepics.discs.conf.props.BlobStoreRoot"
             value="$JBOSS_HOME/standalone/blobStore" />
         <property name= "org.openepics.discs.conf.props.namingAppURL"
-            value="http://10.0.7.55:8080/names" />
+            value="http://naming-service-wildfly:8080/names" />
         <property name="org.openepics.discs.conf.props.detectNamingStatus" value="TRUE" />
         <property name="org.openepics.discs.conf.props.restrictToConventionNames"
             value="TRUE" />
         <property name="org.openepics.discs.conf.props.cableDBAppURL"
-            value="http://10.0.7.55:8086" />
+            value="http://cables-service:8080" />
         <property name="org.openepics.discs.conf.props.cableDBStatus" value="TRUE" />
         <property name="org.openepics.discs.conf.props.auditLogRows" value="10" />
         <property name="org.openepics.discs.conf.props.auditLogColumns" value="10" />
