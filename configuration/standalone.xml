@@ -53,6 +53,7 @@
         <property name="org.openepics.discs.conf.props.auditLogColumns" value="10" />
 
         <property name="names.servicesBaseURL" value="http://naming-service-wildfly:8080/names/rest" />
+        <property name="cable.serviceBaseURL" value="http://cables-service:8080/rest" />
     </system-properties>
     <management>
         <security-realms>
