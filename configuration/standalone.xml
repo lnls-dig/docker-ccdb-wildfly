@@ -30,8 +30,8 @@
         <property name="org.apache.tomcat.util.http.Parameters.MAX_COUNT" value="5000"/>
         <property name="rbac.default.accept.certificate" value="true"/>
         <property name="rbac.certificateStore" value="/opt/jboss/wildfly/standalone/configuration/.rbac" />
-        <property name="rbac.primaryServicesURL" value="https://rbac-auth-services:8443/service"/>
-        <property name="rbac.primarySSLHost" value="rbac-auth-services"/>
+        <property name="rbac.primaryServicesURL" value=" https://sirius-rbac-auth.lnls.br:8443/service"/>
+        <property name="rbac.primarySSLHost" value="sirius-rbac-auth.lnls.br"/>
         <property name="rbac.primarySSLPort" value="8443"/>
         <property name="rbac.secondaryServicesURL" value="https://localhost:8443/service"/>
         <property name="rbac.secondarySSLHost" value="localhost"/>
@@ -42,18 +42,18 @@
         <property name="org.openepics.discs.conf.props.BlobStoreRoot"
             value="$JBOSS_HOME/standalone/blobStore" />
         <property name= "org.openepics.discs.conf.props.namingAppURL"
-            value="http://naming-service-wildfly:8080/names" />
+            value="http://sirius-ns.lnls.br:8080/names" />
         <property name="org.openepics.discs.conf.props.detectNamingStatus" value="TRUE" />
         <property name="org.openepics.discs.conf.props.restrictToConventionNames"
             value="TRUE" />
         <property name="org.openepics.discs.conf.props.cableDBAppURL"
-            value="http://cables-service:8080" />
+            value="http://sirius-cable.lnls.br:8080" />
         <property name="org.openepics.discs.conf.props.cableDBStatus" value="TRUE" />
         <property name="org.openepics.discs.conf.props.auditLogRows" value="10" />
         <property name="org.openepics.discs.conf.props.auditLogColumns" value="10" />
 
-        <property name="names.servicesBaseURL" value="http://naming-service-wildfly:8080/names/rest" />
-        <property name="cable.serviceBaseURL" value="http://cables-service:8080/rest" />
+        <property name="names.servicesBaseURL" value="http://sirius-ns.lnls.br:8080/names/rest" />
+        <property name="cable.serviceBaseURL" value="http://sirius-cable.lnls.br:8080/rest" />
     </system-properties>
     <management>
         <security-realms>
@@ -392,7 +392,7 @@
             <buffer-cache name="default"/>
             <server name="default-server">
                 <http-listener name="default" socket-binding="http"/>
-                <host name="ccdb" alias="ccdb-wildfly, localhost, 10.0.7.55, 10.0.21.122">
+                <host name="ccdb" alias="ccdb-wildfly, sirius-cable.lnls.br, localhost, 10.0.7.55">
                     <location name="/" handler="welcome-content"/>
                     <filter-ref name="server-header"/>
                     <filter-ref name="x-powered-by-header"/>
