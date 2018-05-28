@@ -42,7 +42,7 @@
         <property name="org.openepics.discs.conf.props.BlobStoreRoot"
             value="$JBOSS_HOME/standalone/blobStore" />
         <property name= "org.openepics.discs.conf.props.namingAppURL"
-            value="http://sirius-ns.lnls.br:8080/names" />
+            value="http://sirius-ns.lnls.br:8080" />
         <property name="org.openepics.discs.conf.props.detectNamingStatus" value="TRUE" />
         <property name="org.openepics.discs.conf.props.restrictToConventionNames"
             value="TRUE" />
@@ -52,7 +52,7 @@
         <property name="org.openepics.discs.conf.props.auditLogRows" value="10" />
         <property name="org.openepics.discs.conf.props.auditLogColumns" value="10" />
 
-        <property name="names.servicesBaseURL" value="http://sirius-ns.lnls.br:8080/names/rest" />
+        <property name="names.servicesBaseURL" value="http://sirius-ns.lnls.br:8080/rest" />
         <property name="cable.serviceBaseURL" value="http://sirius-cable.lnls.br:8080/rest" />
     </system-properties>
     <management>
