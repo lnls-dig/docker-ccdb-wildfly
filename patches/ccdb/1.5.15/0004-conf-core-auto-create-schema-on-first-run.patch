@@ -1,0 +1,24 @@
+From fbe2c4bdf2cf5ce7fde8669d3984e3b4f53942b1 Mon Sep 17 00:00:00 2001
+From: Lucas Russo <lerwys@gmail.com>
+Date: Fri, 4 Jan 2019 09:42:53 -0200
+Subject: [PATCH] conf-core: auto-create schema on first run
+
+---
+ conf-core/src/main/resources/META-INF/persistence.xml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/conf-core/src/main/resources/META-INF/persistence.xml b/conf-core/src/main/resources/META-INF/persistence.xml
+index 2a40ff32..64d44e55 100644
+--- a/conf-core/src/main/resources/META-INF/persistence.xml
++++ b/conf-core/src/main/resources/META-INF/persistence.xml
+@@ -45,6 +45,7 @@
+           <!--
+             <property name="hibernate.hbm2ddl.auto" value="validate" />
+           -->
++            <property name="hibernate.hbm2ddl.auto" value="update" />
+             <property name="hibernate.enable_lazy_load_no_trans" value="true" />
+         </properties>
+     </persistence-unit>
+-- 
+2.17.1
+
